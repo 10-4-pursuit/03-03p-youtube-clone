@@ -1,10 +1,11 @@
+
+import { BrowserRouter as Router, Routes, Route, useRoutes } from 'react-router-dom';
+import { createRoot } from 'react-dom/client';
 import React from "react";
 import { Grid } from "@mui/material";
 import youtube from "./api/youtube";
-// import { configDotenv } from "dotenv";
-import {SearchBar, VideoDetails, VideoList} from "./components/index"
+import {SearchBar, VideoDetails, VideoList, LandingPage,SearchPage } from "./components/index"
 const apiKey = process.env.REACT_APP_API_KEY;
-
 
 
 
@@ -37,6 +38,10 @@ this.setState({ videos: response.data.items, selectedVideo: response.data.items[
     return (
       <Grid justify="center" container spacing={10}>
         <Grid item xs={12}>
+        <Routes>
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/search" element={<SearchPage />} />
+        </Routes>
           <Grid container spacing={10}>
             <Grid item xs={12}>
               <SearchBar onFormSubmit={this.handleSubmit} />
@@ -54,4 +59,14 @@ this.setState({ videos: response.data.items, selectedVideo: response.data.items[
   }
 }
 
+const container = document.getElementById('root');
+const root = createRoot(container);
+root.render(<Router><App /></Router>);
+
+// ReactDOM.render(
+//   <Router>
+//     <App />
+//   </Router>,
+//   document.getElementById('root')
+// );
 export default App;
