@@ -1,12 +1,12 @@
 import React from "react";
-
 import { Grid } from "@mui/material";
 import youtube from "./api/youtube";
+// import { configDotenv } from "dotenv";
+import {SearchBar, VideoDetails, VideoList} from "./components/index"
+const apiKey = process.env.REACT_APP_API_KEY;
 
-// import VideoDetails from "./components/VideoDetails"
-// import SearchBar from "./components/SearchBar"
 
-import { SearchBar, VideoDetails, VideoList } from "./components";
+
 
 class App extends React.Component {
     state = { 
@@ -26,7 +26,7 @@ class App extends React.Component {
       params: {
         part: "snippet",
         maxResults: 5,
-        key: "AIzaSyDm-j4hclqYap9Vek7Q4NeUhma7COrvQLw",
+        key: apiKey,
         q: searchTerm,
       },
     });
