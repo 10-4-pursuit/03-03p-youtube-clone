@@ -1,0 +1,35 @@
+.video-player-container {
+    width: 100%;
+    max-width: 720px;
+    margin: 20px auto;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .video-player-container iframe {
+    width: 100%;
+    height: 405px; /* You can adjust this as needed */
+    border-radius: 5px;
+    border: none;
+  }
+  
+  .video-player-container h3 {
+    margin-top: 15px;
+    color: #333;
+    font-size: 1.4em;
+  }
+  
+  .video-player-container p {
+    color: #666;
+    font-size: 0.9em;
+    margin-top: 5px;
+  }
+  
+  .video-player-container p.published-date,
+  .video-player-container p.channel-title {
+    color: #007bff;
+    margin-top: 10px;
+  }
+  
