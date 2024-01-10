@@ -5,7 +5,7 @@ import SearchBar from './components/SearchBar';
 import VideoList from './components/VideoList';
 import VideoPlayer from './components/VideoPlayer';
 import Header from './components/Header';
-import Footer from './components/Footer';
+
 
 function App() {
   const [videos, setVideos] = useState([]);
@@ -39,7 +39,7 @@ function App() {
           <VideoPlayer video={selectedVideo} />
         </>
       }
-      <Footer />
+      
     </div>
   );
 }
