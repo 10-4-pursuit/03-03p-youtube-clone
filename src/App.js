@@ -1,23 +1,45 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import fetchVideos  from './youtubeService';
 import './App.css';
+import SearchBar from './components/SearchBar';
+import VideoList from './components/VideoList';
+import VideoPlayer from './components/VideoPlayer';
+import Header from './components/Header';
+import Footer from './components/Footer';
 
 function App() {
+  const [videos, setVideos] = useState([]);
+  const [selectedVideo, setSelectedVideo] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState('');
+
+  const handleSearch = async (searchTerm) => {
+    setIsLoading(true);
+    setError('');
+    try {
+      const videoItems = await fetchVideos(searchTerm);
+      setVideos(videoItems);
+      setSelectedVideo(null);
+    } catch (error) {
+      console.error('Error fetching videos:', error);
+      setError('Failed to fetch videos. Please try again.'); 
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="content-wrapper">
+      <Header />
+      <SearchBar onSearch={handleSearch} />
+      {error && <div className="error-message">{error}</div>} 
+      {isLoading ? <div>Loading...</div> : 
+        <>
+          <VideoList videos={videos} onVideoSelect={setSelectedVideo} />
+          <VideoPlayer video={selectedVideo} />
+        </>
+      }
+      <Footer />
     </div>
   );
 }
