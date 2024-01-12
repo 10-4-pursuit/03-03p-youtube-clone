@@ -13,7 +13,6 @@ export default function Home() {
     const handleSubmit = async (event) => {
         event.preventDefault();
         const data = await dataFetching(searchTerm);
-        console.log(data);
         setVideos(data.items)
     };
 

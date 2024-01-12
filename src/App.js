@@ -1,6 +1,7 @@
 import './App.css';
 import { BrowserRouter as Router, Route, Link, Routes } from "react-router-dom";
 import Home from "./components/Home";
+import VideoRoute from './components/VideoRoute';
 
 function App() {
 
@@ -14,6 +15,7 @@ function App() {
 
           <Routes>
             <Route path='/' element={<Home />} exact />
+            <Route path='/video/:videoId' element={<VideoRoute />} />
           </Routes>
         </Router>
 
