@@ -5,16 +5,19 @@ import VideoPreview from "../VideoPreview";
 export default function VideoList({videos}) {
 
     return (
-       <div>
-           {videos.map(video => (
-               <div key={video.id.videoId} className="video-item">
-                <Link to={`/video/${video.id.videoId}`}>
-                    <VideoPreview videoId={video.id.videoId} />
-                    {/* <img src={video.snippet.thumbnails.medium.url} alt={video.snippet.title} /> */}
+       <div className="video-list">
+           {videos.map(video => {
+            const videoId = video.id.videoId || video.id
+            return (
+               <div key={videoId} className="video-item">
+                <Link to={`/trendingVideo/${videoId}`}>
+                </Link>
+                <Link to={`/video/${videoId}`}>
+                    <VideoPreview videoId={videoId} />
                 <div>{video.snippet.title}</div>
                 </Link>
                 </div>
-           ))}
+           )})}
        </div>
     );
 }
