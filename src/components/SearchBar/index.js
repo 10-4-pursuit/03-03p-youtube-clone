@@ -1,9 +1,19 @@
 import React from "react"
+import { useNavigate } from "react-router-dom";
 
-export default function SearchBar({ handleSubmit, searchTerm, setSearchTerm }) {
+export default function SearchBar() {
+
+    const [searchTerm, setSearchTerm] = React.useState("");
+
+    const navigate = useNavigate();
+
+    const retrieveResults = (event) => {
+        event.preventDefault();
+        navigate(`/search?searchQuery=${searchTerm}`)
+    };
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={retrieveResults}>
             <label>
                 <input
                     type="text"
