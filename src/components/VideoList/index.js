@@ -10,8 +10,6 @@ export default function VideoList({videos}) {
             const videoId = video.id.videoId || video.id
             return (
                <div key={videoId} className="video-item">
-                <Link to={`/trendingVideo/${videoId}`}>
-                </Link>
                 <Link to={`/video/${videoId}`}>
                     <VideoPreview videoId={videoId} />
                 <div>{video.snippet.title}</div>
