@@ -3,11 +3,14 @@ import SearchBar from "../SearchBar";
 import VideoList from "../VideoList";
 import { useSearchParams } from "react-router-dom";
 import { dataFetching } from "../../helpers/dataFetching";
+import VideoContext from "../../helpers/VideoContext";
 
 export default function SearchRoute() {
 
     // State for storing the list of videos fetched based on the search query
-    const [videos, setVideos] = React.useState([]);
+    // const [videos, setVideos] = React.useState([]);
+
+    const {videos, getVideoData} = React.useContext(VideoContext)
 
     const [searchParams] = useSearchParams();
 
@@ -16,18 +19,18 @@ export default function SearchRoute() {
     React.useEffect(() => {
         const getSearchResult = async () => {
             const fetchData = await dataFetching(searchQuery);
-            setVideos(fetchData.items);
+            getVideoData(fetchData.items);
         }
         getSearchResult();
-    }, [searchQuery]);
+    }, []);
 
     React.useEffect(() => {
         const getSearchResult = async () => {
             const fetchData = await dataFetching(searchQuery);
-            setVideos(fetchData.items);
+            getVideoData(fetchData.items);
         }
         getSearchResult(); 
-    }, [searchParams, searchQuery])
+    }, [searchQuery]);
 
     return (
         <div>
@@ -37,7 +40,7 @@ export default function SearchRoute() {
             {videos.length > 0 && (
                 <>
                     <h2>Search Results</h2>
-                    <VideoList videos={videos} />
+                    <VideoList videos />
                 </>
             )}
         </div>
