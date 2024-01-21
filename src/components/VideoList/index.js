@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import VideoPreview from "../VideoPreview";
+import VideoContext from "../../helpers/VideoContext";
 
-export default function VideoList({videos}) {
+export default function VideoList() {
 
+    const {videos} = useContext(VideoContext)
+    
     return (
        <div className="video-list">
            {videos.map(video => {
