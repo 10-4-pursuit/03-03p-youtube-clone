@@ -2,7 +2,6 @@
 import React from "react";
 import VideoList from "../VideoList";
 import SearchBar from "../SearchBar";
-import { fetchTrendingVideos, fetchMusicVideos, fetchGamingVideos } from "../../helpers/dataFetching";
 import VideoContext from "../../helpers/VideoContext";
 
 export default function Home() {
