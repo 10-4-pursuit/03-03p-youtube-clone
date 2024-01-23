@@ -16,6 +16,7 @@ export default function VideoList() {
                 <Link to={`/video/${videoId}`}>
                     <VideoPreview videoId={videoId} />
                 <div>{video.snippet.title}</div>
+                <div>{video.snippet.channelTitle}</div>
                 </Link>
                 </div>
            )})}
