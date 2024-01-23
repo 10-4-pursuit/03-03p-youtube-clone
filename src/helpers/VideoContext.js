@@ -1,8 +1,12 @@
 import { createContext } from "react";
 
 const VideoContext = createContext({ 
-    videos:{},
-    getVideoData: () => {}
+    trendingVideos: [],
+    getTrendingVideos: () => {},
+    musicVideos: [],
+    getMusicVideos: () => {},
+    gamingVideos: [],
+    getGamingVideos: () => {},
 });
 
 export default VideoContext;
