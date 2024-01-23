@@ -1,23 +1,31 @@
 // Import Dependencies and Components
-import React, { useContext } from "react";
+import React from "react";
 import VideoList from "../VideoList";
 import SearchBar from "../SearchBar";
-import { fetchTrendingVideos } from "../../helpers/dataFetching";
+import { fetchTrendingVideos, fetchMusicVideos, fetchGamingVideos } from "../../helpers/dataFetching";
 import VideoContext from "../../helpers/VideoContext";
 
 export default function Home() {
 
-    // State for storing the list of currently trending videos
-    // const [trendingVideos, setTrendingVideos] = React.useState([]);
-    const { getVideoData } = useContext(VideoContext)
+    const {
+        trendingVideos,
+        getTrendingVideos,
+        musicVideos,
+        getMusicVideos,
+        gamingVideos,
+        getGamingVideos
+    } = React.useContext(VideoContext)
 
-    // Calls fetchTrendingVideos when the component is first mounted.
     React.useEffect(() => {
-        const loadInitialVideos = async () => {
-            const data = await fetchTrendingVideos();
-            getVideoData(data);
-        }
-        loadInitialVideos();
+        getTrendingVideos();
+    }, []);
+
+    React.useEffect(() => {
+        getMusicVideos();
+    }, []);
+
+    React.useEffect(() => {
+        getGamingVideos();
     }, []);
 
     return (
@@ -26,11 +34,13 @@ export default function Home() {
             <SearchBar />
 
             <h2>Trending Videos</h2>
-            <VideoList />
+            {trendingVideos.length > 0 && <VideoList videos={trendingVideos} />}
 
             <h2>Music Videos</h2>
+            {musicVideos.length > 0 && <VideoList videos={musicVideos} />}
 
-            <h2>Most Viewed Videos</h2>
+            <h2>Gaming Videos</h2>
+            {gamingVideos.length > 0 && <VideoList videos={gamingVideos} />}
 
         </div>
     )
