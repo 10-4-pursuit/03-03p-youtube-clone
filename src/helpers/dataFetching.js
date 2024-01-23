@@ -66,4 +66,24 @@ const fetchTrendingVideos = async () => {
     }
 };
 
-export { dataFetching, fetchVideoById, fetchTrendingVideos };
+// Fetches music videos from YouTube.
+const fetchMusicVideos = async () => {
+    try {
+        const musicCategoryId = '10'; // Replace with the actual category ID for music in your region
+        const response = await axios.get('https://www.googleapis.com/youtube/v3/videos', {
+            params: {
+                part: 'snippet,contentDetails,statistics',
+                chart: 'mostPopular',
+                regionCode: 'US',
+                videoCategoryId: musicCategoryId,
+                maxResults: 10,
+                key: process.env.REACT_APP_API_KEY,
+            }
+        });
+        return response.data.items;
+    } catch (error) {
+        console.error('Error fetching music videos:', error);
+    }
+};
+
+export { dataFetching, fetchVideoById, fetchTrendingVideos, fetchMusicVideos };
