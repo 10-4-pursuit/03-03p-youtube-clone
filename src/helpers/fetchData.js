@@ -4,16 +4,36 @@ const fetchData = async (searchQuery) => {
     const response = await axios.get(`https://www.googleapis.com/youtube/v3/search`, {
         params: {
             part: 'snippet',
-            maxResults: 10,
+            maxResults: 5,
             key: process.env.REACT_APP_API_KEY,
             q: searchQuery
         }
     })
 
     return (
-        console.log(response)
-        // response.data
+        response.data
     )
 };
 
-export default fetchData;
+const getVideoById = async (id) => {
+    try {
+        const response = await axios.get(`https://www.googleapis.com/youtube/v3/videos`, {
+          params: {
+            part: 'snippet,contentDetails,statistics',
+            id: id, // Replace with the actual video ID
+            key: process.env.REACT_APP_API_KEY
+          }
+        });
+      
+        return response.data.items[0];
+        // Handle the successful response here
+        console.log(response.data);
+      } catch (error) {
+        // Handle any errors that occurred during the request
+        console.error('Error fetching video data:', error);
+      }
+      
+      
+}
+
+export {fetchData, getVideoById};
