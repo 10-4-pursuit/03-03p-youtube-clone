@@ -19,6 +19,29 @@ const dataFetching = async (searchTerm) => {
     )
 };
 
+const fetchVideoById = async (videoId) => {
+    try {
+        // Making an HTTP GET request to the YouTube Videos API
+        const response = await axios.get('https://www.googleapis.com/youtube/v3/videos', {
+            params: {
+                part: 'snippet,contentDetails,statistics', // Specify the parts you need
+                id: videoId, // The ID of the video you want to fetch
+                key: process.env.REACT_APP_API_KEY, // Your YouTube API key
+            }
+        });
+
+        // Handling the response
+        if (response.data.items.length === 0) {
+            throw new Error('No video found with the provided ID');
+        }
+
+        return response.data.items[0]; // Returns the video object
+    } catch (error) {
+        console.error('Error fetching video by ID:', error);
+        throw error; // Re-throw the error for further handling
+    }
+};
+
 // Fetches the trending videos from YouTube.
 const fetchTrendingVideos = async () => {
     try {
@@ -36,11 +59,11 @@ const fetchTrendingVideos = async () => {
         return (
             response.data.items
         )
-        
+
         // Error Handling
     } catch (error) {
         console.error('Error fetching trending videos:', error);
     }
 };
 
-export { dataFetching, fetchTrendingVideos };
+export { dataFetching, fetchVideoById, fetchTrendingVideos };
