@@ -86,4 +86,31 @@ const fetchMusicVideos = async () => {
     }
 };
 
-export { dataFetching, fetchVideoById, fetchTrendingVideos, fetchMusicVideos };
+// Fetches gaming videos from YouTube.
+const fetchGamingVideos = async () => {
+    try {
+        const gamingCategoryId = '20'; // Replace with the actual category ID for gaming in your region if different
+        const response = await axios.get('https://www.googleapis.com/youtube/v3/videos', {
+            params: {
+                part: 'snippet,contentDetails,statistics',
+                chart: 'mostPopular',
+                regionCode: 'US', // You can change this to the region you're interested in
+                videoCategoryId: gamingCategoryId,
+                maxResults: 10, // Adjust the number of results as needed
+                key: process.env.REACT_APP_API_KEY,
+            }
+        });
+        return response.data.items;
+    } catch (error) {
+        console.error('Error fetching gaming videos:', error);
+    }
+};
+
+
+export { 
+    dataFetching, 
+    fetchVideoById, 
+    fetchTrendingVideos, 
+    fetchMusicVideos,
+    fetchGamingVideos
+};
