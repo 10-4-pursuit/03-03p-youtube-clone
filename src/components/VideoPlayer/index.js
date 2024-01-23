@@ -1,34 +1,38 @@
 import React from "react";
 import LikeDislike from "../LikeDislike";
-import VideoContext from "../../helpers/VideoContext";
+import { fetchVideoById } from "../../helpers/dataFetching";
 
 export default function VideoPlayer({ videoId }) {
+
+    const [vidInfo, setVidInfo] = React.useState();
+
     const videoSrc = `https://www.youtube.com/embed/${videoId}`;
 
-    const {videos} = React.useContext(VideoContext)
-    
-    const video = videos.find((vid) => {
-        const id = vid.id.videoId || vid.id
-        return videoId === id
-    });
+    React.useEffect(() => {
+        const getVidInfo = async () => {
+            const data = await fetchVideoById(videoId);
+            setVidInfo(data);
+        }
+        getVidInfo();
+    }, [])
 
-    if (!video || !video.snippet) {
+    if (!vidInfo || !vidInfo.snippet) {
         return <div>Video Not Found!</div>
     }
 
     return (
-        <div>
+        <div className="video-player">
             <iframe src={videoSrc} allowFullScreen title="Video player" />
             <LikeDislike />
             <label>
-                <p>{video.snippet.title}</p>
+                <h3>{vidInfo.snippet.title}</h3>
             </label>
             <label>
-                <p>{video.snippet.channelTitle}</p>
+                <h4>{vidInfo.snippet.channelTitle}</h4>
             </label>
             <label>
-                <p>{video.snippet.description}</p>
+                <p>{vidInfo.snippet.description}</p>
             </label>
-        </div> 
+        </div>
     );
 }
