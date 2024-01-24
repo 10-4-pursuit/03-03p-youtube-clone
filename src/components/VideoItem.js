@@ -5,7 +5,7 @@ import {Grid, Paper, Typography} from "@mui/material";
 const VideoItem = ({video, onVideoClick}) => {
     return (
        <Grid item xs={12}>
-        <Paper style={{display:'flex', alignItems: 'center', cursor:'pointer'}} onClick={() => onVideoClick(video)}>
+        <Paper style={{display:'flex', alignItems: 'center', cursor:'pointer'}} onClick={ onVideoClick }>
             <img style={{marginRight:'20px'}} alt="thumbnail" src={video.snippet.thumbnails.medium.url}/>
             <Typography variant="subtitle1"><b>{video.snippet.title}</b></Typography>
         </Paper>

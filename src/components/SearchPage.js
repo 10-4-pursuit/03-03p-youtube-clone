@@ -14,7 +14,6 @@ function SearchPage() {
       "q"
     );
     if (initialSearchTerm) {
-      setSearchTerm(initialSearchTerm);
       handleSubmit(initialSearchTerm);
     }
   }, []);

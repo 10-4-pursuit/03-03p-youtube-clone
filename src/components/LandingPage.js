@@ -36,6 +36,7 @@ function LandingPage() {
   return (
     <Grid container spacing={10}>
       <Grid item xs={12}>
+        <SearchBar />
         <h1>Popular Videos</h1>
       </Grid>
       <Grid item xs={12}>

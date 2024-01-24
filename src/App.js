@@ -1,26 +1,31 @@
 
 import { BrowserRouter as Router, Routes, Route, BrowserRouter} from 'react-router-dom';
 import React from "react";
-import { Grid } from "@mui/material";
+import { Grid, Box } from "@mui/material";
 import youtube from "./api/youtube";
-import { LandingPage,SearchPage } from "./components/index"
+import { LandingPage,SearchPage, NavBar } from "./components/index"
 const apiKey = process.env.REACT_APP_API_KEY;
 
 
 function App (){
    
     return (
-      <Grid justify="center" container spacing={10}>
-        <Grid item xs={12}>
-          <BrowserRouter>
+      <BrowserRouter>
+      <Box  sx={{ backgroundColor: '#000' }}>
+      <NavBar />
+      {/* <Grid justify="center" container spacing={10}>
+        <Grid item xs={12}> */}
+         
         <Routes>
            <Route path="/" element={<LandingPage />} />
           <Route path="/search" element={<SearchPage />} /> 
         </Routes>
-        </BrowserRouter>
+       
       
-          </Grid>
-        </Grid>
+          {/* </Grid>
+        </Grid> */}
+        </Box>
+        </BrowserRouter>
   
     ) 
 }
