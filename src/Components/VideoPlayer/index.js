@@ -1,11 +1,11 @@
 import React, { useContext, useEffect, useState } from "react";
 import ReactPlayer from 'react-player';
 import { getVideoById } from "../../helpers/fetchData";
+import './VideoPlayer.css'
 
 function VideoPlayer({ vidId }) {
 
     const [videoInfo, setVideoInfo] = useState();
-
     const vidSrc = `https://www.youtube.com/embed/${vidId}`;
  
 
@@ -13,11 +13,9 @@ function VideoPlayer({ vidId }) {
         const getVideoDetails = async () => {
             const data = await getVideoById(vidId);
             setVideoInfo(data);
-            console.log(data)
         }
         getVideoDetails();
     }, []);
-    console.log(videoInfo);
 
     return !videoInfo || !videoInfo.snippet ? (
         <div className="video-player">
@@ -25,9 +23,11 @@ function VideoPlayer({ vidId }) {
         </div>
     ) : (
         <div className="video-player">
-            <h1>{videoInfo.snippet.title}</h1>
+            <h1 className="video-title">{videoInfo.snippet.title}</h1>
             <iframe src={vidSrc} allowFullScreen title="video player"/>
-            <p>{videoInfo.snippet.description}</p>
+            <div className="video-description-container">
+                <p className="video-description">{videoInfo.snippet.description}</p>
+            </div>
         </div>
     );
 }

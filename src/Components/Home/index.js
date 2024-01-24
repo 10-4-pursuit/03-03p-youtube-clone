@@ -3,6 +3,7 @@ import SearchBar from "../SearchBar";
 import { fetchData } from "../../helpers/fetchData";
 import VideoList from "../VideoList";
 import VideoContext from "../../helpers/VideoContent";
+import "./Home.css";
 
 function Home() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -19,7 +20,6 @@ function Home() {
       try {
         const response = await fetchData(query);
         getVideoData(response.items);
-        // console.log(response)
       } catch (error) {
         console.error("Error acquring data: ", error);
       }
@@ -28,11 +28,13 @@ function Home() {
   }, []);
 
   return (
-    <div>
-      <h1>Welcome to YouTube!</h1>
-      <SearchBar handleSubmit={handleSubmit} setSearchQuery={setSearchQuery} />
-
-      <VideoList videos={videos} />
+    <div className="youtube-homepage">
+      <div className="header-container">
+        <SearchBar className='searchBar' handleSubmit={handleSubmit} setSearchQuery={setSearchQuery} />
+        <div className="video-list-container">
+          <VideoList videos={videos} />
+        </div>
+      </div>
     </div>
   );
 }

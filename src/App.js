@@ -6,21 +6,19 @@ import VideoRoute from './Components/VideoRoute/index';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <Router>
-          <nav>
-            <Link to='/'>Home</Link>
-            <Link to='/search'></Link>
-          </nav>
-          <Routes>
-            <Route path='/' element={<Home />}/>
-            <Route path='/search' element={<VideoList />} />
-            <Route path='/video/:vidId' element={<VideoRoute />} />
-          </Routes>
-        </Router>
-      </header>
-    </div>
+    <header className="App-header">
+      <Router>
+        <nav className='main-nav'>
+          <Link to='/'>YouTube</Link>
+          <Link to='/search'></Link>
+        </nav>
+        <Routes>
+          <Route path='/' element={<Home />}/>
+          <Route path='/search' element={<VideoList />} />
+          <Route path='/video/:vidId' element={<VideoRoute />} />
+        </Routes>
+      </Router>
+    </header>
   );
 }
 

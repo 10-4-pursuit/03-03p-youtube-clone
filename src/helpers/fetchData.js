@@ -24,12 +24,9 @@ const getVideoById = async (id) => {
             key: process.env.REACT_APP_API_KEY
           }
         });
-      
         return response.data.items[0];
-        // Handle the successful response here
-        console.log(response.data);
+      
       } catch (error) {
-        // Handle any errors that occurred during the request
         console.error('Error fetching video data:', error);
       }
       
