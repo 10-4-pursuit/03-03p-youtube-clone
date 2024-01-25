@@ -20,7 +20,7 @@ const getVideoById = async (id) => {
         const response = await axios.get(`https://www.googleapis.com/youtube/v3/videos`, {
           params: {
             part: 'snippet,contentDetails,statistics',
-            id: id, // Replace with the actual video ID
+            id: id, 
             key: process.env.REACT_APP_API_KEY
           }
         });

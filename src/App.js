@@ -9,7 +9,7 @@ function App() {
     <header className="App-header">
       <Router>
         <nav className='main-nav'>
-          <Link to='/'>YouTube</Link>
+          <Link to='/'><h1><span>YouTube</span></h1></Link>
           <Link to='/search'></Link>
         </nav>
         <Routes>

@@ -1,5 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
-import ReactPlayer from 'react-player';
+import React, { useEffect, useState } from "react";
 import { getVideoById } from "../../helpers/fetchData";
 import './VideoPlayer.css'
 

@@ -9,20 +9,11 @@
   .header-container {
     background-color: #fff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    border-radius: 4px;
+    border-radius: 25px;
     padding: 20px;
-    /* display: flex; */
-    flex-wrap: wrap;
-    justify-content: space-between;
     align-items: center;
-    position: relative; 
   }
   
-  /* Video List Container */
-  .video-list-container {
-    flex: 2; /* Expand video list to take more space */
-    padding-right: 20px; /* Add some spacing between video list and side panel */
-  }
   
   /* Search Bar */
   .searchBar {
@@ -33,15 +24,4 @@
     z-index: 999; /* Set a high z-index to ensure it's on top of other elements */
   }
   
-  /* Add responsive styles for smaller screens */
-  @media (max-width: 768px) {
-    .header-container {
-      flex-direction: column; /* Stack content on smaller screens */
-      align-items: stretch;
-    }
-    .video-list-container {
-      flex: 1; /* Expand video list to take full width on smaller screens */
-      padding-right: 0; /* Remove right padding on smaller screens */
-    }
-  }
   
