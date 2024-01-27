@@ -1,30 +1,48 @@
 import React, {useState} from "react";
-import { Paper, TextField, IconButton } from "@mui/material";
-import SearchIcon from '@mui/icons-material/Search';
+import { useNavigate } from "react-router-dom";
+import { Paper, IconButton } from "@mui/material";
+import { Search } from "@mui/icons-material"
 
-class SearchBar extends React.Component {
-    state = { searchTerm: '', };
+const SearchBar = () =>  {
+//     state = { searchTerm: '', };
 
-handleChange = (event) => {this.setState({ searchTerm: event.target.value })}
+// handleChange = (event) => {this.setState({ searchTerm: event.target.value })}
 
-handleSubmit = (event) => {
-    const { searchTerm } = this.state;
-    const { onFormSubmit } = this.props;
+// handleSubmit = (event) => {
+//     const { searchTerm } = this.state;
+//     const { onFormSubmit } = this.props;
 
-    onFormSubmit(searchTerm)
+//     onFormSubmit(searchTerm)
 
-    event.preventDefault();
+//     event.preventDefault();
 
-}
-    render() { 
+// }
+// ]]
         return (
-            <Paper elevation={6} style={{ padding: '25px'}}>
-                <form onSubmit={this.handleSubmit}>  
-                    <TextField fullWidth label="Search..." onChange={this.handleChange}>
-                    </TextField>
-                </form>
+            <Paper 
+            component='form'
+            onSubmit={() => {}}
+            sx={{
+                borderRadius: 20,
+                border: '1px solid #e3e3e3',
+                pl: 2,
+                boxShadow: 'none',
+                mr: { sm: 5 },
+              }}
+            >
+
+                <input
+        className='search-bar'
+        placeholder='Search...'
+        value=""
+        onChange={() => {}}
+      />
+
+                <IconButton type='submit' sx={{ p: '10px', color: 'red' }} aria-label='search'>
+        <Search />
+      </IconButton>
                 </Paper>
         )
     }
- }
+ 
  export default SearchBar;

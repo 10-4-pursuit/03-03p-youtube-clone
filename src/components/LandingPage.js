@@ -1,27 +1,29 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Grid } from '@mui/material';
-import {SearchBar, VideoDetails, VideoList} from "./index"
+import { Grid, Box, Stack, Typography } from '@mui/material';
+import {SearchBar, VideoDetails, VideoList, Sidebar} from "./index"
 import youtube from "../api/youtube";
 const apiKey = process.env.REACT_APP_API_KEY;
 
 function LandingPage() {
   const [videos, setVideos] = useState([]);
   const navigate = useNavigate();
+  const [selectedCategory, setSelectedCategory] = useState('Popular')
   
   const handleVideoClick = (videoId) => {
-    navigate(`/search?q=${videoId}`); // Redirect to SearchPage with video ID
+    navigate(`/search?q=${videoId}`); 
   };
 
   useEffect(() => {
-    // Fetch popular or predefined videos here
+   
     const fetchPopularVideos = async () => {
       try {
         const response = await youtube.get("videos", {
           params: {
             part: "snippet",
             chart: "mostPopular",
-            maxResults: 5, // Adjust as needed
+            maxResults: 10, 
+            q: `${selectedCategory}`,
             key: apiKey,
           },
         });
@@ -31,19 +33,39 @@ function LandingPage() {
       }
     };
     fetchPopularVideos();
-  }, []);
+  }, [selectedCategory]);
 
   return (
-    <Grid container spacing={10}>
-      <Grid item xs={12}>
-        <SearchBar />
-        <h1>Popular Videos</h1>
-      </Grid>
-      <Grid item xs={12}>
-        <VideoList videos={videos} onVideoClick={handleVideoClick}  />
-      </Grid>
-    </Grid>
-  );
+    <Stack sx={{ flexDirection: { sx: "column", md: "row" } }}>
+ <Box sx={{ height: { sx: "auto", md: "92vh" }, borderRight: "1px solid #3d3d3d", px: { sx: 0, md: 2 } }}>
+<Sidebar 
+selectedCategory=
+{selectedCategory}
+setSelectedCategory=
+{setSelectedCategory}
+/>
+ <Typography className="copyright" variant="body2" sx={{ mt: 1.5, color: "#fff", }}>
+        Copyright © 2024 Will Do Industries
+      </Typography>
+ </Box>
+ <Box p={2} sx={{ overflowY: "auto", height: "90vh", flex: 2 }}>
+        <Typography variant="h4" fontWeight="bold" mb={2} sx={{ color: "white" }}>
+          {selectedCategory}
+          <span style={{ color: "#FC1503" }}>Videos</span>
+        </Typography>
+
+         <VideoList videos={videos} /> 
+      </Box>
+      
+      
+      {/* <VideoList videos={videos} onVideoClick={handleVideoClick}  /> */}
+
+    </Stack>
+    
+       
+     
+  )     
+    
 }
 
 export default LandingPage;

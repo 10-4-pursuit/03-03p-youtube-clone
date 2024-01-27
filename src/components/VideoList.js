@@ -1,7 +1,8 @@
 import React from "react";
-import { Grid } from "@mui/material";
+import { Grid, Stack, Box } from "@mui/material";
 import VideoItem from "./VideoItem";
 import { useNavigate } from 'react-router-dom';
+import {VideoCard, ChannelCard} from './index'
 
 const VideoList = ({ videos, onVideoClick }) => { 
   const navigate = useNavigate();
@@ -13,17 +14,31 @@ const VideoList = ({ videos, onVideoClick }) => {
           onVideoClick={() => handleVideoClick(video.id)}
         />
       ));
-      console.log(videos)
+
       const handleVideoClick = ({videoId}) => {
-       console.log(videoId)
+       
         // onVideoClick(videoId);
         navigate(`/search?q=${videoId}`)
       };
-    
+     
       return (
-        <Grid container spacing={10}>
+        <Stack direction="row" flexWrap="wrap" justifyContent="start" alignItems="start" gap={2}>
+      
+{videos.map((item, idx) => (
+ <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
+        
+          {/* {item.id.videoId && <VideoCard video={item} /> }
+          {item.id.channelId && <ChannelCard channelDetail={item} />} */}
           {listOfVideos}
-        </Grid>
+       
+
+
+
+</Grid>
+      ))}
+
+        </Stack>
+      
       );
     };
     

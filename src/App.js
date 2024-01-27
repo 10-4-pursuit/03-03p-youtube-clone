@@ -13,17 +13,12 @@ function App (){
       <BrowserRouter>
       <Box  sx={{ backgroundColor: '#000' }}>
       <NavBar />
-      {/* <Grid justify="center" container spacing={10}>
-        <Grid item xs={12}> */}
+      
          
         <Routes>
            <Route path="/" element={<LandingPage />} />
-          <Route path="/search" element={<SearchPage />} /> 
+          {/* <Route path="/search" element={<SearchPage />} />  */}
         </Routes>
-       
-      
-          {/* </Grid>
-        </Grid> */}
         </Box>
         </BrowserRouter>
   
