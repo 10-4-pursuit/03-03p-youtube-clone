@@ -22,22 +22,16 @@ const VideoList = ({ videos, onVideoClick }) => {
       };
      
       return (
-        <Stack direction="row" flexWrap="wrap" justifyContent="start" alignItems="start" gap={2}>
-      
-{videos.map((item, idx) => (
- <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
+        // <Stack direction="row" flexWrap="wrap" justifyContent="start" alignItems="start" gap={2}>
+  <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>   
+{videos.map((_, index) => (
+ <Grid item xs={2} sm={4} md={4} key={index}>
         
-          {/* {item.id.videoId && <VideoCard video={item} /> }
-          {item.id.channelId && <ChannelCard channelDetail={item} />} */}
-          {listOfVideos}
-       
-
-
-
+         {listOfVideos} 
 </Grid>
       ))}
-
-        </Stack>
+      </Grid>
+        // </Stack>
       
       );
     };
