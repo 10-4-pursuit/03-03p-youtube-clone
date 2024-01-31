@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Link, Routes } from "react-router-dom";
 import Home from "./components/Home";
 import VideoRoute from './components/VideoRoute';
 import SearchRoute from './components/SearchRoute';
+import SearchBar from './components/SearchBar';
 
 function App() {
 
@@ -15,7 +16,11 @@ function App() {
         <Router>
           {/* Navigation Setup with Link */}
           <nav>
-            <Link to='/'>YouTube</Link>
+            <div className='header-spacer'>
+            <Link to='/' className='youtube-home-link'>YouTube</Link>
+            </div>
+            <SearchBar />
+            <div className='header-spacer'></div>
           </nav>
 
           {/* 

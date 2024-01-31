@@ -7,6 +7,8 @@ const VideoContext = createContext({
     getMusicVideos: () => {},
     gamingVideos: [],
     getGamingVideos: () => {},
+    searchResults: [],
+    getSearchResults: () => {},
 });
 
 export default VideoContext;

@@ -1,13 +1,21 @@
 import { useState } from "react";
 import VideoContext from "./VideoContext";
-import { fetchTrendingVideos, fetchMusicVideos, fetchGamingVideos } from "./dataFetching";
+import { fetchTrendingVideos, fetchMusicVideos, fetchGamingVideos, dataFetching, } from "./dataFetching";
 
 export const VideoProvider = ({ children }) => {
+
+    const [searchResults, setSearchResults] = useState([]);
+
     const [trendingVideos, setTrendingVideos] = useState([]);
 
     const [musicVideos, setMusicVideos] = useState([]);
 
     const [gamingVideos, setGamingVideos] = useState([]);
+
+    const getSearchResults = async (searchTerm) => {
+        const data = await dataFetching(searchTerm);
+        setSearchResults(data.items)
+    }
 
     const getTrendingVideos = async () => {
         const data = await fetchTrendingVideos();
@@ -31,7 +39,9 @@ export const VideoProvider = ({ children }) => {
             musicVideos,
             getMusicVideos,
             gamingVideos,
-            getGamingVideos
+            getGamingVideos,
+            searchResults,
+            getSearchResults
             }}>
             {children}
         </VideoContext.Provider>
