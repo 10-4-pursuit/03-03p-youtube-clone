@@ -3,6 +3,10 @@
 ## Objective
 The objective of this project is to create a simplified version of YouTube. This is a web application that emulates key functionalities of YouTube, focusing on video browsing, searching, and viewing. This project is designed for educational purposes and to showcase the implementation of a simple video streaming service via the YouTube API.
 
+## Technologies Used
+### React
+- This project is built using **React**, for creating reusable UI components (like Search Bar, Video List, and Video Player), which enhanced the user experience and improved the maintainability of the codebase.
+
 ## Getting Started
 
 1. **Fork the Repository**: Click the 'Fork' button at the top right of this page to create a copy of this repository in your GitHub account.
@@ -24,4 +28,3 @@ The application currently consists of three main features:
 ![Searching](./src/Components/imgs/Screenshot_3.png)
 - **Watching a Video**: Click on any video in the Video List to watch it. The Video Player will open on the Video Route, where you can view the video and its details.
 ![VideoPage](./src/Components/imgs/Screenshot_2.png)
-
