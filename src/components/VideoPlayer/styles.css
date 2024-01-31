@@ -1,0 +1,36 @@
+.video-player {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.video-container {
+    margin-top: 20px;
+    border: 2px solid black;
+    width: 800px;
+    height: 500px;
+    border-radius: 10px;
+}
+
+.video-title {
+    text-align: center;
+    width: 800px;
+}
+
+.video-channel-title {
+    margin-right: 440px;
+}
+
+.channel-title-like-dislike {
+    display: flex;
+}
+
+.video-description {
+    border: 1px solid black;
+    padding-top: 15px;
+    width: 800px;
+    height: 200px;
+    overflow-y: scroll;
+    border-radius: 10px;
+}

@@ -33,7 +33,7 @@ export default function LikeDislike() {
     };
 
     return (
-        <div>
+        <>
             <button onClick={handleLike} className="like-button">
                 Like | {likes}
             </button>
@@ -43,6 +43,6 @@ export default function LikeDislike() {
             <ToastContainer 
             theme="colored"
             />
-        </div>
+        </>
     );
 }

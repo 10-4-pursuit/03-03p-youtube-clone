@@ -1,5 +1,6 @@
 import React from "react"
 import { useNavigate } from "react-router-dom";
+import './styles.css'
 
 export default function SearchBar() {
 
@@ -13,7 +14,7 @@ export default function SearchBar() {
     };
 
     return (
-        <form onSubmit={retrieveResults}>
+        <form onSubmit={retrieveResults} className="submit-search-form">
             <label>
                 <input
                     type="text"

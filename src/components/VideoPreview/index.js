@@ -49,15 +49,16 @@ export default function VideoPreview({ videoId }) {
             <div onClick={handleVideoClick} className="video-click-handle">
                 {/* When you make the CSS styling for this include the width and height functionality as well as the positioning*/}
             </div>
+            <div className="react-player">
             <ReactPlayer
                 config={{ youtube: { embedOptions: { origin: "http://localhost:3002" } } }}
                 ref={playerRef} // Attach the ref to the ReactPlayer
                 url={videoUrl} // Set the url to the videoUrl
                 playing={play} // Control playback with the playing prop set to the state play
                 muted={true} // Mute the video
-                width="40%" // Set its width
-                height="50%" // Set its height
+                width="100%" // Set its width
             />
+            </div>
         </div>
     );
 };

@@ -9,7 +9,7 @@ export default function VideoRoute() {
 
     // Render the Component
     return (
-        <div>
+        <div className="video-route">
             {/* Display the VideoPlayer Component */}
             <VideoPlayer videoId={videoId} />
         </div>

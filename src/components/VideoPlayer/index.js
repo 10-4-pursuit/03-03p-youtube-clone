@@ -1,6 +1,7 @@
 import React from "react";
 import LikeDislike from "../LikeDislike";
 import { fetchVideoById } from "../../helpers/dataFetching";
+import './styles.css'
 
 export default function VideoPlayer({ videoId }) {
 
@@ -22,16 +23,18 @@ export default function VideoPlayer({ videoId }) {
 
     return (
         <div className="video-player">
-            <iframe src={videoSrc} allowFullScreen title="Video player" />
-            <LikeDislike />
+            <iframe src={videoSrc} allowFullScreen title="Video player" className="video-container" />
             <label>
-                <h3>{vidInfo.snippet.title}</h3>
+                <h3 className="video-title">{vidInfo.snippet.title}</h3>
             </label>
             <label>
-                <h4>{vidInfo.snippet.channelTitle}</h4>
+                <div className="channel-title-like-dislike">
+                    <h4 className="video-channel-title">{vidInfo.snippet.channelTitle}</h4>
+                    <LikeDislike />
+                </div>
             </label>
             <label>
-                <p>{vidInfo.snippet.description}</p>
+                <p className="video-description">{vidInfo.snippet.description}</p>
             </label>
         </div>
     );
