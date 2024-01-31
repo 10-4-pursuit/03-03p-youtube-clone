@@ -13,6 +13,7 @@
   border: 1px solid #ff0000; /* Red border accent */
   border-radius: 4px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  padding-bottom: 20px;
   transition: transform 0.2s ease-in-out;
 }
 
@@ -34,7 +35,7 @@
   border-radius: 5px;
   width: 300px; /* Adjust thumbnail width as needed */
   height: auto;
-  margin-right: 10px; /* Add some spacing between thumbnail and description */
+  margin-right: 10px; 
 }
 
 /* Video Title */

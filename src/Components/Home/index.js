@@ -24,7 +24,7 @@ function Home() {
         console.error("Error acquring data: ", error);
       }
     };
-    handleData("coding");
+    handleData("react tutorial coding");
   }, []);
 
   return (
