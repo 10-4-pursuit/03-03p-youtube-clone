@@ -1,27 +1,22 @@
 import { Link } from "react-router-dom";
 import VideoPreview from "../VideoPreview";
-import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
-import { Carousel } from 'react-responsive-carousel';
+import Carousel from "../Carousel";
 import './styles.css'
 
 export default function VideoList({ videos }) {
 
+    const carouselItems = videos.map(video => {
+        return {
+            title: video.snippet.title,
+            description: video.snippet.description,
+            videoId: video.id.videoId || video.id,
+            channelTitle: video.snippet.channelTitle
+        };
+    });
+
     return (
         <div className="video-list">
-            <Carousel centerMode={true} width={'62.5%'}>
-            {videos.map(video => {
-                const videoId = video.id.videoId || video.id
-                return (
-                    <div key={videoId} className="video-item">
-                        <Link to={`/video/${videoId}`}>
-                            <VideoPreview videoId={videoId} />
-                            <div className="home-page-video-title">{video.snippet.title}</div>
-                            <div className="home-page-video-channel-title">{video.snippet.channelTitle}</div>
-                        </Link>
-                    </div>
-                );
-            })}
-            </Carousel>
+            <Carousel videos={carouselItems} />
         </div>
     );
 }
