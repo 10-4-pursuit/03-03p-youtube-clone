@@ -14,7 +14,8 @@ export default function VideoPreview({ videoId }) {
     // Define Mouse Event Handlers
     const handleMouseEnter = () => setPlay(true);
     const handleMouseLeave = () => {
-        setPlay(false)
+        setPlay(false);
+        clearTimeout(timer);
     };
 
     const handleVideoClick = (event) => {
@@ -31,9 +32,10 @@ export default function VideoPreview({ videoId }) {
                 if (playerRef.current) {
                     playerRef.current.seekTo(0); // Reset the video to the beginning
                 };
-            }, 10000);
+            }, 5000);
             setTimer(currentTimer);
-        } else {
+        } 
+        else {
             clearTimeout(timer);
             if (playerRef.current) {
                 playerRef.current.seekTo(0); // Reset the video to the beginning
@@ -55,8 +57,9 @@ export default function VideoPreview({ videoId }) {
                 ref={playerRef} // Attach the ref to the ReactPlayer
                 url={videoUrl} // Set the url to the videoUrl
                 playing={play} // Control playback with the playing prop set to the state play
+                // light={true}
                 muted={true} // Mute the video
-                width="100%" // Set its width
+                width="800px" // Set its width
             />
             </div>
         </div>
