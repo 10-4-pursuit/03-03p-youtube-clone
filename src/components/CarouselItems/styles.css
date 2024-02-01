@@ -1,0 +1,35 @@
+/* .carousel-video {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 500px;
+    border: 2px solid goldenrod;
+    background-color: #fff;
+}
+
+.carousel-video-title {
+    font-size: 1.15rem;
+    margin: 40px 0 40px 0;
+    white-space: normal;
+    color: goldenrod
+}
+
+.carousel-video-description {
+    font-size: 1rem;
+    margin: 40px 0 40px 0;
+    white-space: normal;
+    color: goldenrod
+} */
+
+.carousel-video {
+    width: 100%;
+}
+
+.carousel-video-description {
+    text-decoration: none;
+    height: 100px;
+    padding: 10px;
+    overflow: scroll;
+    text-wrap: wrap;
+    color: black;
+}
