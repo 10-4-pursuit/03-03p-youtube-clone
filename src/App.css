@@ -12,5 +12,19 @@ nav {
     width: 50px;
 }
 
+.youtube-home-link {
+    text-decoration: none;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 10px;
+    color: black;
+    background-color: red;
+}
+
+.youtube-home-link :hover {
+    font-weight: bolder;
+    border-width: 3px;
+}
+
 
 

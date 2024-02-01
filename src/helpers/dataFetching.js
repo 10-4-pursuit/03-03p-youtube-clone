@@ -7,7 +7,7 @@ const dataFetching = async (searchTerm) => {
         // Specify Query Parameters
         params: {
             part: 'snippet',
-            maxResults: 20,
+            maxResults: 10,
             key: process.env.REACT_APP_API_KEY,
             q: searchTerm
         }
