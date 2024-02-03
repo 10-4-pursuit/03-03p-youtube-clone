@@ -31,6 +31,27 @@ const getVideoById = async (id) => {
       }
       
       
-}
+};
 
-export {fetchData, getVideoById};
+const fetchTrendingVideos = async () => {
+    try {
+        const response = await axios.get('https://www.googleapis.com/youtube/v3/videos', {
+            params: {
+                part: 'snippet,contentDetails,statistics',
+                chart: 'mostPopular',
+                regionCode: 'US',
+                maxResults: 10,
+                key: process.env.REACT_APP_API_KEY,
+            }
+        });
+
+        return (
+            response.data.items
+        )
+
+    } catch (error) {
+        console.error('Error fetching trending videos:', error);
+    }
+};
+
+export {fetchData, getVideoById, fetchTrendingVideos};
