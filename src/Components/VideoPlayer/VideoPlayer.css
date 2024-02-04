@@ -1,11 +1,13 @@
 /* Video Player Container */
 .video-player {
-    margin-top: 50px;
+    max-width: 60%;
+    margin: 50px auto 0 auto; /* shorthand for margin-top, margin-right, margin-bottom, margin-left */
     background-color: #fff;
     padding: 20px;
     border-radius: 4px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
+
   
   /* Video Title */
   .video-title {

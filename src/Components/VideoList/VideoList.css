@@ -4,7 +4,8 @@
   padding-top: 20px;
   grid-template-columns: repeat(auto-fit, minmax(300px, 3fr));
   grid-gap: 20px;
-  justify-content: space-evenly;
+  padding: 10px 0;
+  /* justify-content: space-evenly; */
 }
 
 /* Video Item */
@@ -26,16 +27,18 @@
   display: block;
   text-decoration: none;
   color: inherit;
-  flex: 1; 
   padding: 10px;
 }
 
+.video-thumbnail{
+  padding-bottom: 210px;
+}
 /* Video Thumbnail */
 .video-thumbnail img{
   border-radius: 5px;
-  width: 300px; /* Adjust thumbnail width as needed */
-  height: auto;
-  margin-right: 10px; 
+  width: 300px; 
+  height: 200px;
+  /* margin-right: 10px;  */
 }
 
 /* Video Title */
@@ -47,6 +50,7 @@
 
 /* Video Description */
 .description {
+  /* padding-top: 30px; */
   font-size: 14px;
   color: #666;
 }

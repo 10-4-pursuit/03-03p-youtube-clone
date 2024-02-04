@@ -24,7 +24,7 @@ function Home() {
         console.error("Error acquring data: ", error);
       }
     };
-    handleData("react tutorial coding");
+    handleData("how to cook chicken");
   }, []);
 
   return (
