@@ -11,50 +11,6 @@ const SearchBar = () =>  {
   const [selectedVideo, setSelectedVideo] = useState(null);
   const navigate = useNavigate();
 
-  // useEffect(() => {
-  //   const initialSearchTerm = new URLSearchParams(window.location.search).get(
-  //     "q"
-  //   );
-  //   if (initialSearchTerm) {
-  //     handleSubmit(initialSearchTerm);
-  //   }
-  // }, []);
-
-  // const handleSubmit = async (term) => {
-  //   setSearchTerm(term);
-  //   const { onFormSubmit } = this.props;
-  //       onFormSubmit(searchTerm)
-  //       // event.preventDefault();
-  //   try {
-  //     const response = await youtube.get("search", {
-  //       params: {
-  //         part: "snippet",
-  //         maxResults: 5,
-  //         key: apiKey,
-  //         q: term,
-  //       },
-  //     });
-  //     setVideos(response.data.items);
-  //     setSelectedVideo(response.data.items[0]);
-  //   } catch (error) {
-  //     console.error("Error fetching videos:", error);
-  //   }
-  // };
-
-
-
-// const handleChange = (event) => {setSearchTerm(event.target.value)}
-
-// const handleSubmit = (event) => {
-//     const { searchTerm } = this.state;
-//     const { onFormSubmit } = this.props;
-
-//     onFormSubmit(searchTerm)
-
-//     event.preventDefault();
-
-// }
-
 const onhandleSubmit = (e) => {
   e.preventDefault();
 
@@ -81,7 +37,6 @@ const onhandleSubmit = (e) => {
         className='search-bar'
         placeholder='Search...'
         value={searchTerm}
-        // onFormSubmit={handleSubmit}
         onChange={(e) => setSearchTerm(e.target.value)}
       />
                 <IconButton type='submit' sx={{ p: '10px', color: 'red' }} aria-label='search'>

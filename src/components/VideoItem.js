@@ -5,7 +5,9 @@ import CheckCircleIcon from "@mui/icons-material/CheckCircle"
 
 const VideoItem = ({video, onVideoClick}) => {
     return (
-        <Card sx={{ width: { xs: '100%', sm: '358px', md: "320px", }, boxShadow: "none", borderRadius: 0 }}>
+        <Card 
+        onClick={onVideoClick}
+        sx={{ width: { xs: '100%', sm: '358px', md: "320px", }, boxShadow: "none", borderRadius: 0 }}>
       
        <CardMedia image={video.snippet?.thumbnails?.high?.url} alt={video.snippet?.title} 
         sx={{ width: { xs: '100%', sm: '358px'}, height: 180 }} 

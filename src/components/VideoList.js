@@ -12,15 +12,14 @@ const VideoList = ({ videos, onVideoClick }) => {
         <VideoItem
           key={id}
           video={video}
-          onVideoClick={() => handleVideoClick(video.id)}
+          onVideoClick={() => onVideoClick(video.id)}
         />
       ));
 
-      const handleVideoClick = ({videoId}) => {
-       
-        // onVideoClick(videoId);
-        navigate(`/search?q=${videoId}`)
-      };
+      // const handleVideoClick = ({videoId}) => {
+    
+      //   navigate(`/search?q=${videoId}`)
+      // };
      
       return (
 

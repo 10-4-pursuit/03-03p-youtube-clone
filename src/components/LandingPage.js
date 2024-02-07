@@ -11,8 +11,8 @@ function LandingPage() {
   const [selectedCategory, setSelectedCategory] = useState('Popular')
   const [selectedVideo, setSelectedVideo] = useState(null);
  
-  const handleVideoClick = (videoId) => {
-    navigate(`/search?q=${videoId}`); 
+  const handleVideoClick = ({videoId}) => {
+    navigate(`/video/${videoId}`); 
   };
 
 
@@ -20,17 +20,16 @@ function LandingPage() {
 
     const fetchPopularVideos = async () => {
       try {
-        const response = await youtube.get("videos", {
+        const response = await youtube.get("search", {
           params: {
             part: "snippet",
-            chart: "mostPopular",
             maxResults: 12, 
             q: `${selectedCategory}`,//this is suppose to change the based on selected category
             key: apiKey,
           },
         });
         setVideos(response.data.items);
-        console.log(response.data.items)
+       
       
       } catch (error) {
         console.error("Error fetching videos:", error);
@@ -61,10 +60,10 @@ setSelectedCategory=
 
          <VideoList videos={videos} onVideoClick={handleVideoClick} /> 
 
-         <Grid item xs={8}>
+         {/* <Grid item xs={8}>
         <VideoDetails video={selectedVideo} />
       </Grid>
-       
+        */}
       </Box>
       
       
