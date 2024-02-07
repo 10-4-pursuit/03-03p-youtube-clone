@@ -1,9 +1,12 @@
 import React from "react";
 
+// Define the SearchBar component
 export default function SearchBar({ handleSubmit, searchQuery, setSearchQuery }) {
+    // Render the search bar form
     return (
         <form onSubmit={handleSubmit} className="search-bar-container">
             <label className="search-label">
+                {/* Input field for entering search query */}
                 <input 
                     type="text"
                     name="search"
@@ -14,6 +17,7 @@ export default function SearchBar({ handleSubmit, searchQuery, setSearchQuery })
                     />
             </label>
 
+            {/* Search button */}
             <input 
                 type="submit"
                 value="Search" 
