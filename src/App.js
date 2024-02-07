@@ -13,11 +13,9 @@ function App (){
       <BrowserRouter>
       <Box  sx={{ backgroundColor: '#000' }}>
       <NavBar />
-      
-         
-        <Routes>
+         <Routes>
            <Route path="/" element={<LandingPage />} />
-          {/* <Route path="/search" element={<SearchPage />} />  */}
+           <Route path="/search/:searchTerm" element={<SearchPage />} />  
         </Routes>
         </Box>
         </BrowserRouter>

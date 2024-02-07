@@ -6,5 +6,3 @@ export {default as SearchPage} from "./SearchPage";
 export {default as NavBar} from "./NavBar";
 export {default as Feed} from "./Feed";
 export { default as Sidebar } from './Sidebar';
-export { default as ChannelCard } from './ChannelCard';
-export { default as VideoCard } from './VideoCard';

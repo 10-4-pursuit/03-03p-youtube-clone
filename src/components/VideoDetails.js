@@ -1,6 +1,8 @@
 import React from 'react';
-
-import { Paper, Typography } from '@mui/material';
+import {Link, useParams} from 'react-router-dom'
+// import ReactPlayer from "react-player";
+import CheckCircleIcon from "@mui/icons-material/CheckCircle";
+import { Paper, Typography, Box, Stack } from '@mui/material';
 
 const VideoDetails = ({video}) => {
     if (!video) return <div>Loading...</div>
@@ -17,7 +19,6 @@ const VideoDetails = ({video}) => {
         <Typography variant='h4'>{video.snippet.title} - {video.snippet.channelTitle}  </Typography>
         <Typography variant='subtitle1'>{video.snippet.channelTitle}  </Typography>
         <Typography variant='subtitle2'>{video.snippet.description}</Typography>
-
         </Paper>
        </React.Fragment>
     )
