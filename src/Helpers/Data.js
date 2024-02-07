@@ -46,6 +46,7 @@ const fetchTrendingVideos = async () => {
         });
 
         return (
+            console.log(response.data.items),
             response.data.items
         )
 

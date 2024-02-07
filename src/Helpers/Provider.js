@@ -1,16 +1,16 @@
 import React, { useState } from "react";
-import VideoContext from "./VideoContent";
+import VideoContext from "./Context";
 
-export const VideoProvider = ({ children }) => {
+export default function VideoProvider({ children }) {
     const [videos, setVideos] = useState([]);
 
     const getVideoData = (data) => {
         setVideos(data);
     }
 
-    return(
+    return (
         <VideoContext.Provider value={{ videos, getVideoData }}>
-            {children}
+            { children }
         </VideoContext.Provider>
     );
 };
