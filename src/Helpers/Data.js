@@ -1,5 +1,6 @@
 import axios from "axios";
 
+// Function to fetch search results based on a query
 const fetchData = async (searchQuery) => {
     const response = await axios.get(`https://www.googleapis.com/youtube/v3/search`, {
         params: {
@@ -15,6 +16,7 @@ const fetchData = async (searchQuery) => {
     )
 };
 
+// Function to fetch video details by ID
 const getVideoById = async (id) => {
     try {
         const response = await axios.get(`https://www.googleapis.com/youtube/v3/videos`, {
@@ -33,6 +35,7 @@ const getVideoById = async (id) => {
       
 };
 
+// Function to fetch trending videos
 const fetchTrendingVideos = async () => {
     try {
         const response = await axios.get('https://www.googleapis.com/youtube/v3/videos', {
