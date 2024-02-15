@@ -39,7 +39,7 @@ export default function Carousel({ videos }) {
                                 updateIndex(index)
                             }}
                             className="carousel-indicator-buttons"
-                            key={video.title}>
+                            key={video.title || index}>
                         <span className={`material-symbols-outlined ${index === activeIndex ? "carousel-indicator-symbol-active" : "carousel-indicator-symbol"}`}>
                             radio_button_checked
                         </span>
