@@ -1,0 +1,14 @@
+.video-preview-container {
+    position: relative;
+}
+
+.video-click-handle {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    border-radius: 10px;
+}
+
+.react-player {
+    width: 100%;
+}
