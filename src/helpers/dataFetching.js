@@ -7,7 +7,7 @@ const dataFetching = async (searchTerm) => {
         // Specify Query Parameters
         params: {
             part: 'snippet',
-            maxResults: 10,
+            maxResults: 50,
             key: process.env.REACT_APP_API_KEY,
             q: searchTerm
         }
@@ -107,10 +107,10 @@ const fetchGamingVideos = async () => {
 };
 
 
-export { 
-    dataFetching, 
-    fetchVideoById, 
-    fetchTrendingVideos, 
+export {
+    dataFetching,
+    fetchVideoById,
+    fetchTrendingVideos,
     fetchMusicVideos,
     fetchGamingVideos
 };
