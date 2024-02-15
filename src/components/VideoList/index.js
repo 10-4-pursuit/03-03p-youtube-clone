@@ -23,7 +23,7 @@ export default function VideoList({ videos, displayMode = 'carousel' }) {
             );
         });
     };
-    console.log(videos)
+    
     return (
         <div className={displayMode === 'carousel' ? 'video-carousel' : 'video-list-page'}>
             {displayMode === 'carousel' ? (
