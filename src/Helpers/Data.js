@@ -5,7 +5,7 @@ const fetchData = async (searchQuery) => {
     const response = await axios.get(`https://www.googleapis.com/youtube/v3/search`, {
         params: {
             part: 'snippet',
-            maxResults: 10,
+            maxResults: 9,
             key: process.env.REACT_APP_API_KEY,
             q: searchQuery
         }
@@ -40,10 +40,10 @@ const fetchTrendingVideos = async () => {
     try {
         const response = await axios.get('https://www.googleapis.com/youtube/v3/videos', {
             params: {
-                part: 'snippet,contentDetails,statistics',
+                part: 'snippet,statistics',
                 chart: 'mostPopular',
                 regionCode: 'US',
-                maxResults: 10,
+                maxResults: 9,
                 key: process.env.REACT_APP_API_KEY,
             }
         });

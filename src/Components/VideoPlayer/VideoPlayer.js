@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { getVideoById } from "../../Helpers/Data";
+import { Navbar, Nav } from 'react-bootstrap';
 
 // Component to display a video player
 export default function VideoPlayer({ vidId }) {
@@ -24,10 +25,17 @@ export default function VideoPlayer({ vidId }) {
     ) : (
         <div className="video-player">
             {/* Navigation links */}
-            <div className='nav-bar'>
-                <Link to='/' className="home-link">Home</Link>
-                <Link to='/search' className="search-link">Search</Link>
-            </div>
+            {/* Bootstrap Navbar */}
+            <Navbar bg="dark" expand="xxl" variant="dark" sticky="top">
+                <Navbar.Brand className="logo" as={Link} to="/">YouTube Clone</Navbar.Brand>
+                <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                <Navbar.Collapse id="basic-navbar-nav">
+                    <Nav className="mr-auto">
+                        <Nav.Link as={Link} to="/">Home</Nav.Link>
+                        <Nav.Link as={Link} to="/search">Search</Nav.Link>
+                    </Nav>
+                </Navbar.Collapse>
+            </Navbar>
 
             {/* Display video details */}
             <div className="video-info">
@@ -36,7 +44,7 @@ export default function VideoPlayer({ vidId }) {
             </div>
             
             {/* Display video player */}
-            <iframe src={vidSrc} allowFullScreen title="video player"/>
+            <iframe src={vidSrc} className="video" allowFullScreen title="video player" height={"750px"} width={"90%"}/>
 
             {/* Display video description */}
             <div className="video-description-container">

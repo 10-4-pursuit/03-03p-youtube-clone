@@ -1,0 +1,81 @@
+/* App.css */
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+.search-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-heading {
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.search-form {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.search-button {
+    margin-left: 5px;
+}
+
+.video-item {
+    border: solid 2px black;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.video-info {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.video {
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.trending-heading {
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+.video-likes {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.logo {
+    padding-left: 10px;
+}
+
+/* .h-100 {
+    margin-left: 10px;
+    margin-right: 10px;
+}  */
+
+.h-100:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.text-muted1 {
+    position: absolute;
+    bottom: 5px;
+    right: 10px;
+}
+
+.text-muted2 {
+    position: absolute;
+    bottom: 5px;
+    right: 10px;
+}
