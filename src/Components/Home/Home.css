@@ -1,0 +1,27 @@
+/* Home Container */
+.youtube-homepage {
+    background-color: #f9f9f9;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+
+  .header-container {
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 25px;
+    padding: 20px;
+    align-items: center;
+  }
+  
+  
+  /* Search Bar */
+  .searchBar {
+    position: fixed; /* Fixed position to keep it on top */
+    align-self: center;
+    top: 20px; /* Adjust the top position as needed */
+    left: 20px; /* Adjust the left position as needed */
+    z-index: 999; /* Set a high z-index to ensure it's on top of other elements */
+  }
+  
+  
